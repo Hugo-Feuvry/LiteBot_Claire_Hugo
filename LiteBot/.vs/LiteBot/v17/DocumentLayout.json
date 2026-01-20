@@ -7,22 +7,6 @@
       "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:Bot.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:cell.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:grid.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:MapSelectionMenu.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:MapSelectionMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -31,24 +15,40 @@
       "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:map.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\basics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:basics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\Bot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:Bot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:grid.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:cell.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:cell.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\Bot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:Bot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\basics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:basics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:MapSelectionMenu.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2A0FA91A-77F9-4ABD-8360-C87F24D30FAA}|LiteBot.vcxproj|solutionrelative:MapSelectionMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,19 +58,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "basics.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\basics.h",
               "RelativeDocumentMoniker": "basics.h",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\basics.h",
               "RelativeToolTip": "basics.h",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAFEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-16T09:14:46.778Z"
+              "WhenOpened": "2026-01-16T09:14:46.778Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -80,71 +81,48 @@
               "RelativeDocumentMoniker": "main.c",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAAAOwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-01-16T09:14:39.752Z"
+              "WhenOpened": "2026-01-16T09:14:39.752Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Bot.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\Bot.h",
               "RelativeDocumentMoniker": "Bot.h",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\Bot.h",
               "RelativeToolTip": "Bot.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEcAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-16T09:14:32.492Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MapSelectionMenu.c",
-              "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c",
-              "RelativeDocumentMoniker": "MapSelectionMenu.c",
-              "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c",
-              "RelativeToolTip": "MapSelectionMenu.c",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-01-14T17:05:33.065Z",
+              "WhenOpened": "2026-01-16T09:14:32.492Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "MapSelectionMenu.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.h",
               "RelativeDocumentMoniker": "MapSelectionMenu.h",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.h",
               "RelativeToolTip": "MapSelectionMenu.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-14T17:05:31.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-14T17:05:31.063Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "map.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.h",
               "RelativeDocumentMoniker": "map.h",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.h",
               "RelativeToolTip": "map.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-14T17:05:27.664Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "map.c",
-              "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.c",
-              "RelativeDocumentMoniker": "map.c",
-              "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.c",
-              "RelativeToolTip": "map.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-01-14T17:05:24.679Z"
+              "WhenOpened": "2026-01-14T17:05:27.664Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -154,27 +132,52 @@
               "RelativeDocumentMoniker": "Bot.c",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\Bot.c",
               "RelativeToolTip": "Bot.c",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAgwKAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAcwGgBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-14T17:05:14.121Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
+              "Title": "MapSelectionMenu.c",
+              "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c",
+              "RelativeDocumentMoniker": "MapSelectionMenu.c",
+              "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\MapSelectionMenu.c",
+              "RelativeToolTip": "MapSelectionMenu.c",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-14T17:05:33.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "map.c",
+              "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.c",
+              "RelativeDocumentMoniker": "map.c",
+              "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\map.c",
+              "RelativeToolTip": "map.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-14T17:05:24.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "cell.c",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.c",
               "RelativeDocumentMoniker": "cell.c",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.c",
               "RelativeToolTip": "cell.c",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-14T17:05:07.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "cell.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\cell.h",
               "RelativeDocumentMoniker": "cell.h",
@@ -182,32 +185,34 @@
               "RelativeToolTip": "cell.h",
               "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-14T17:05:03.933Z"
+              "WhenOpened": "2026-01-14T17:05:03.933Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "grid.c",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.c",
               "RelativeDocumentMoniker": "grid.c",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.c",
               "RelativeToolTip": "grid.c",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-01-14T17:04:48.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
               "Title": "grid.h",
               "DocumentMoniker": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.h",
               "RelativeDocumentMoniker": "grid.h",
               "ToolTip": "C:\\Users\\ptihu\\Music\\LiteBot_Claire_Hugo\\LiteBot\\grid.h",
               "RelativeToolTip": "grid.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-14T17:04:04.669Z"
+              "WhenOpened": "2026-01-14T17:04:04.669Z",
+              "EditorCaption": ""
             }
           ]
         }

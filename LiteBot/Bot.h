@@ -19,9 +19,11 @@ struct Map;
 /// </remarks>
 struct Move
 {
-    enum MovementType type;
+    enum MovementType  type;
     enum Direction direction;
 };
+
+
 
 /// <summary>
 /// Structure to represent a Bot in the game.

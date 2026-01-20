@@ -70,6 +70,7 @@ enum Direction
     NORTH_SOUTH_EAST = 31,
     NORTH_SOUTH_WEST = 32,
     ALL = 33,
+    
 };
 
 /// <summary>
@@ -80,6 +81,7 @@ enum MovementType
     INVALID,
     MOVE_TO,
     JUMP,
+    JUMP_DOWN,
 };
 
 /// <summary>
