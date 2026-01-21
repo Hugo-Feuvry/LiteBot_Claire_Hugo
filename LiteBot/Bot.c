@@ -8,6 +8,7 @@ bool IsWalkable(enum CellType type)
 }
 
 
+
 struct Bot* CreateBot()
 {
     struct Bot* bot = (struct Bot*)malloc(sizeof(struct Bot));
@@ -225,12 +226,39 @@ static bool try_move_safely(struct Bot* bot, Grid* grid,
 
     return false;
 }
+void UpdateChrono(struct GameData* game) {
+    if (!game->chrono_running) return;
+
+    sfTime elapsed = sfClock_getElapsedTime(game->chrono_clock);
+    float seconds = sfTime_asSeconds(elapsed);
+
+    if (seconds >= 1.0f) {
+        game->chrono_seconds++;
+        sfClock_restart(game->chrono_clock);
+
+
+        if (game->chrono_seconds == 60) {
+            game->chrono_seconds = 0;
+            game->chrono_minutes++;
+        }
+        if (game->chrono_minutes == 60) {
+            game->chrono_minutes = 0;
+            game->chrono_hours++;
+        }
+    }
+}
 
 void MoveBot_AI(void* data)
 {
+    
     struct GameData* game = (struct GameData*)data;
     if (!game || !game->bot || !game->grid)
         return;
+    game->chrono_clock = sfClock_create();
+    game->chrono_seconds = 0;
+    game->chrono_minutes = 0;
+    game->chrono_hours = 0;
+    game->chrono_running = true;
 
     struct Bot* bot = game->bot;
     Grid* grid = game->grid;
@@ -242,6 +270,8 @@ void MoveBot_AI(void* data)
     while (1)
     {
         sfSleep(sfMilliseconds(300));
+        UpdateChrono(game);
+        printf("Temps : %02d:%02d:%02d\n", game->chrono_hours, game->chrono_minutes, game->chrono_seconds);
 
         int x = bot->position.x;
         int y = bot->position.y;
@@ -360,6 +390,13 @@ void MoveBot_AI(void* data)
                 if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
             }
         }
+        if (r == REACH_END) {
+            game->pathResult = REACH_END;
+            game->chrono_running = false;
+            printf("Temps final : %02d:%02d:%02d\n", game->chrono_hours, game->chrono_minutes, game->chrono_seconds);
+            return;
+        }
+        sfClock_destroy(game->chrono_clock);
 
         // Aucune option viable
         game->pathResult = NO_MOVE_LEFT;

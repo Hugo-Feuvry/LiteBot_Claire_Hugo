@@ -51,8 +51,17 @@ struct GameData
     Grid* grid;
     int step;
     enum MoveResult pathResult ;
+    sfClock* chrono_clock;  
+    sfTime chrono_time;
+    
+    int chrono_seconds;
+    int chrono_minutes;
+    int chrono_hours;
+    bool chrono_running;
+    sfFont* font;       
+    sfText* chrono_text; 
 };
-
+ 
 
 
 // ----------------------
