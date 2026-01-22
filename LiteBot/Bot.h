@@ -60,6 +60,7 @@ struct GameData
     bool chrono_running;
     sfFont* font;       
     sfText* chrono_text; 
+    bool** visited;
 };
  
 

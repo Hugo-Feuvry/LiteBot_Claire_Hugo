@@ -175,21 +175,19 @@ static inline void compute_dest(int x, int y, enum MovementType mt, enum Directi
     *ny = y + dy * dist;
 }
 
+
 // Vérifie si le move cible la case précédente (pour éviter l'aller‑retour immédiat)
 static inline bool targets_prev(int x, int y, enum MovementType mt, enum Direction dir, sfVector2i prev) {
     int nx, ny;
     compute_dest(x, y, mt, dir, &nx, &ny);
     return (nx == prev.x && ny == prev.y);
+
 }
 
 // Essaie d'exécuter un move. Met à jour prevPos uniquement si la position a changé.
 // - allow_backtrack=false : interdit de revenir sur prevPos
 // - allow_backtrack=true  : autorise le retour si aucune autre option n'existe
-static bool try_move_safely(struct Bot* bot, Grid* grid,
-    enum MovementType mt, enum Direction dir,
-    bool allow_backtrack, sfVector2i* prevPos,
-    enum MoveResult* outResult)
-{
+static bool try_move_safely(struct Bot* bot, Grid* grid, enum MovementType mt, enum Direction dir, bool allow_backtrack, sfVector2i* prevPos, enum MoveResult* outResult, bool** visited) {
     int x = bot->position.x;
     int y = bot->position.y;
 
@@ -197,30 +195,32 @@ static bool try_move_safely(struct Bot* bot, Grid* grid,
         return false;
     }
 
-    // Vérification des bornes de la destination AVANT l’appel à MoveBot
     int nx, ny;
     compute_dest(x, y, mt, dir, &nx, &ny);
     if (!in_bounds(nx, ny)) return false;
 
-    // Pour les JUMP, s'assurer que la destination est praticable pour l'IA
+    // Vérifier si la destination est déjà visitée
+    if (visited[ny][nx]) {
+        return false;
+    }
+
     if (mt == JUMP) {
         enum CellType dstT = grid->cell[ny][nx]->type;
         if (!is_walkable_for_ai(dstT)) {
             return false;
         }
-        // La règle "mid doit être OBSTACLE" (ou non-walkable) est laissée à MoveBot si tu l'as implémentée.
     }
 
     sfVector2i before = bot->position;
     enum MoveResult r = MoveBot(bot, grid, mt, dir);
     if (outResult) *outResult = r;
 
-    // S'arrêter immédiatement si la destination est END
     if (r == REACH_END) return true;
 
-    // A-t-on vraiment bougé ?
     if (bot->position.x != before.x || bot->position.y != before.y) {
-        *prevPos = before; // mémorise d'où l'on vient pour casser l'oscillation
+        *prevPos = before;
+        // Marquer la nouvelle position comme visitée
+        visited[bot->position.y][bot->position.x] = true;
         return true;
     }
 
@@ -250,10 +250,17 @@ void UpdateChrono(struct GameData* game) {
 
 void MoveBot_AI(void* data)
 {
-    
     struct GameData* game = (struct GameData*)data;
     if (!game || !game->bot || !game->grid)
         return;
+
+    // Initialisation de la matrice des positions visitées
+    bool** visited = (bool**)calloc(GRID_ROWS, sizeof(bool*));
+    for (int i = 0; i < GRID_ROWS; i++) {
+        visited[i] = (bool*)calloc(GRID_COLS, sizeof(bool));
+    }
+
+    // Initialisation du chrono
     game->chrono_clock = sfClock_create();
     game->chrono_seconds = 0;
     game->chrono_minutes = 0;
@@ -262,10 +269,12 @@ void MoveBot_AI(void* data)
 
     struct Bot* bot = game->bot;
     Grid* grid = game->grid;
-
     game->pathResult = NOTHING;
 
     sfVector2i prevPos = (sfVector2i){ -1, -1 };
+
+    // Marquer la position initiale comme visitée
+    visited[bot->position.y][bot->position.x] = true;
 
     while (1)
     {
@@ -278,18 +287,21 @@ void MoveBot_AI(void* data)
 
         if (grid->cell[y][x]->type == END) {
             game->pathResult = REACH_END;
-            return;
+            game->chrono_running = false;
+            printf("Temps final : %02d:%02d:%02d\n", game->chrono_hours, game->chrono_minutes, game->chrono_seconds);
+            break;
         }
 
+        // Vérifier les cases adjacentes
         enum CellType eastT = (x + 1 < GRID_COLS) ? grid->cell[y][x + 1]->type : OBSTACLE;
         enum CellType westT = (x - 1 >= 0) ? grid->cell[y][x - 1]->type : OBSTACLE;
         enum CellType northT = (y - 1 >= 0) ? grid->cell[y - 1][x]->type : OBSTACLE;
         enum CellType southT = (y + 1 < GRID_ROWS) ? grid->cell[y + 1][x]->type : OBSTACLE;
 
-        bool east_ok = is_walkable_for_ai(eastT);
-        bool west_ok = is_walkable_for_ai(westT);
-        bool north_ok = is_walkable_for_ai(northT);
-        bool south_ok = is_walkable_for_ai(southT);
+        bool east_ok = is_walkable_for_ai(eastT) && !visited[y][x + 1];
+        bool west_ok = is_walkable_for_ai(westT) && !visited[y][x - 1];
+        bool north_ok = is_walkable_for_ai(northT) && !visited[y - 1][x];
+        bool south_ok = is_walkable_for_ai(southT) && !visited[y + 1][x];
 
         enum MoveResult r = NOTHING;
         bool moved = false;
@@ -300,49 +312,91 @@ void MoveBot_AI(void* data)
 
          // 1) Priorité à l'Est
         if (!moved && east_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, EAST, false, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, EAST, false, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         // 2) Descendre si possible
         if (!moved && south_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, SOUTH, false, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, SOUTH, false, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         // 3) Aller à l'Ouest
         if (!moved && west_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, WEST, false, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, WEST, false, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         // 4) Monter si possible
         if (!moved && north_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, NORTH, false, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, NORTH, false, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         // 5) Saut vers le bas si nécessaire
         if (!moved && (y + 2) < GRID_ROWS) {
             enum CellType dstSouth = grid->cell[y + 2][x]->type;
-            bool dst_ok = is_walkable_for_ai(dstSouth);
+            bool dst_ok = is_walkable_for_ai(dstSouth) && !visited[y + 2][x];
             if (!is_walkable_for_ai(southT) && dst_ok) {
-                moved = try_move_safely(bot, grid, JUMP, SOUTH, false, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+                moved = try_move_safely(bot, grid, JUMP, SOUTH, false, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
 
         // 6) Saut à l'EST si l'est immédiat est bloqué et x+2 praticable
         if (!moved && (x + 2) < GRID_COLS && !east_ok) {
             enum CellType dstEast2 = grid->cell[y][x + 2]->type;
-            if (is_walkable_for_ai(dstEast2)) {
-                moved = try_move_safely(bot, grid, JUMP, EAST, false, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            if (is_walkable_for_ai(dstEast2) && !visited[y][x + 2]) {
+                moved = try_move_safely(bot, grid, JUMP, EAST, false, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
 
         // 7) Saut à l'OUEST si l'ouest immédiat est bloqué et x-2 praticable
         if (!moved && (x - 2) >= 0 && !west_ok) {
             enum CellType dstWest2 = grid->cell[y][x - 2]->type;
-            if (is_walkable_for_ai(dstWest2)) {
-                moved = try_move_safely(bot, grid, JUMP, WEST, false, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            if (is_walkable_for_ai(dstWest2) && !visited[y][x - 2]) {
+                moved = try_move_safely(bot, grid, JUMP, WEST, false, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
 
@@ -350,58 +404,108 @@ void MoveBot_AI(void* data)
          *   PASS 2 : autoriser 1 retour
          *  ======================= */
 
+         // Réessayer en autorisant le retour en arrière
+        east_ok = is_walkable_for_ai(eastT);
+        west_ok = is_walkable_for_ai(westT);
+        north_ok = is_walkable_for_ai(northT);
+        south_ok = is_walkable_for_ai(southT);
+
         if (!moved && east_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, EAST, true, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, EAST, true, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         if (!moved && south_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, SOUTH, true, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, SOUTH, true, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         if (!moved && west_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, WEST, true, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, WEST, true, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
         if (!moved && north_ok)
-            moved = try_move_safely(bot, grid, MOVE_TO, NORTH, true, &prevPos, &r);
-        if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+            moved = try_move_safely(bot, grid, MOVE_TO, NORTH, true, &prevPos, &r, visited);
+        if (moved) {
+            if (r == REACH_END) {
+                game->pathResult = REACH_END;
+                break;
+            }
+            continue;
+        }
 
+        // Sauts avec retour autorisé
         if (!moved && (y + 2) < GRID_ROWS) {
             enum CellType dstSouth = grid->cell[y + 2][x]->type;
             bool dst_ok = is_walkable_for_ai(dstSouth);
             if (!is_walkable_for_ai(southT) && dst_ok) {
-                moved = try_move_safely(bot, grid, JUMP, SOUTH, true, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+                moved = try_move_safely(bot, grid, JUMP, SOUTH, true, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
 
         if (!moved && (x + 2) < GRID_COLS && !east_ok) {
             enum CellType dstEast2 = grid->cell[y][x + 2]->type;
             if (is_walkable_for_ai(dstEast2)) {
-                moved = try_move_safely(bot, grid, JUMP, EAST, true, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+                moved = try_move_safely(bot, grid, JUMP, EAST, true, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
 
         if (!moved && (x - 2) >= 0 && !west_ok) {
             enum CellType dstWest2 = grid->cell[y][x - 2]->type;
             if (is_walkable_for_ai(dstWest2)) {
-                moved = try_move_safely(bot, grid, JUMP, WEST, true, &prevPos, &r);
-                if (moved) { if (r == REACH_END) { game->pathResult = REACH_END; } continue; }
+                moved = try_move_safely(bot, grid, JUMP, WEST, true, &prevPos, &r, visited);
+                if (moved) {
+                    if (r == REACH_END) {
+                        game->pathResult = REACH_END;
+                        break;
+                    }
+                    continue;
+                }
             }
         }
-        if (r == REACH_END) {
-            game->pathResult = REACH_END;
-            game->chrono_running = false;
-            printf("Temps final : %02d:%02d:%02d\n", game->chrono_hours, game->chrono_minutes, game->chrono_seconds);
-            return;
-        }
-        sfClock_destroy(game->chrono_clock);
 
         // Aucune option viable
         game->pathResult = NO_MOVE_LEFT;
-        return;
+        break;
     }
+
+    // Libérer la mémoire de la matrice visited
+    for (int i = 0; i < GRID_ROWS; i++) {
+        free(visited[i]);
+    }
+    free(visited);
+
+    sfClock_destroy(game->chrono_clock);
 }
 
 
